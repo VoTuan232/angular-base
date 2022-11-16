@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
@@ -7,9 +8,9 @@ import { NavComponent } from './nav/nav.component';
 const EXPORT_COMPONENTS = [HeaderComponent, NavComponent, FooterComponent]
 
 @NgModule({
+  imports: [CommonModule],
   declarations: [...EXPORT_COMPONENTS],
   exports: [...EXPORT_COMPONENTS],
-  imports: [CommonModule],
   providers: [],
 })
 export class LayoutModule {

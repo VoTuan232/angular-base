@@ -3,7 +3,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
-import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ApiService, JwtService } from './services';
 
 const SERVICES = [ApiService, JwtService]

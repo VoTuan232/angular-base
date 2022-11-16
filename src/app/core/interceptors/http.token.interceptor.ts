@@ -6,21 +6,22 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class HttpTokenInterceptor implements HttpInterceptor {
-  // constructor(private jwtService: JwtService) {}
+  constructor(private jwtService: JwtService) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-     // this.authService = this.injector.get(AuthService);
-    // const token: string = this.authService.getToken();
-    // add authorization header with jwt token if available
-    const currentUser = null as any; // this.authenticationService.currentUserValue;
-    if (currentUser && currentUser?.token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `${currentUser?.token}`,
-        },
-      });
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const headersConfig = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    };
+
+    const token = this.jwtService.getToken();
+
+    if (token) {
+      headersConfig['Authorization'] = `Token ${token}`;
     }
 
-    return next.handle(request);
+    req = req.clone({ setHeaders: headersConfig });
+
+    return next.handle(req);
   }
 }

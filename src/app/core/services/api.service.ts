@@ -11,17 +11,17 @@ export class ApiService {
     private http: HttpClient,
   ) {}
 
-  private formatErrors(error: any) {
+  private formatErrors(error: any): any {
     return  throwError(error.error);
   }
 
-  get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}${path}`, { params })
+  get<T>(path: string, params: HttpParams = new HttpParams()): Observable<T | unknown> {
+    return this.http.get<T>(`${environment.apiBaseUrl}${path}`, { params })
       .pipe(catchError(this.formatErrors));
   }
 
-  put(path: string, body: Object = {}): Observable<any> {
-    return this.http.put(
+  put<T>(path: string, body: Object = {}): Observable<T | unknown> {
+    return this.http.put<T>(
       `${environment.apiBaseUrl}${path}`,
       JSON.stringify(body)
     ).pipe(catchError(this.formatErrors));
@@ -34,7 +34,7 @@ export class ApiService {
     ).pipe(catchError(this.formatErrors));
   }
 
-  delete(path): Observable<any> {
+  delete(path: string): Observable<any> {
     return this.http.delete(
       `${environment.apiBaseUrl}${path}`
     ).pipe(catchError(this.formatErrors));
