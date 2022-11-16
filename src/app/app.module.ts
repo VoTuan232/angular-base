@@ -10,7 +10,6 @@ import { SharedModule } from './shared';
 import { CoreModule } from './core';
 import { ViewsModule } from './views/views.module';
 import { LayoutModule } from './layout/layout.module';
-import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
