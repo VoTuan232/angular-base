@@ -1,3 +1,12 @@
 @import "variables";
 @import "reset";
 @import "material";
+
+.my-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-tab {
+  padding: 200px;
+}

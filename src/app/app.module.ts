@@ -10,6 +10,7 @@ import { SharedModule } from './shared';
 import { CoreModule } from './core';
 import { ViewsModule } from './views/views.module';
 import { LayoutModule } from './layout/layout.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LayoutModule } from './layout/layout.module';
     LayoutModule,
     SharedModule,
     ViewsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

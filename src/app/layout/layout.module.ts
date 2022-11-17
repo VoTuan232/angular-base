@@ -7,11 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
+import {MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 const EXPORT_COMPONENTS = [HeaderComponent, NavComponent, FooterComponent]
 
 @NgModule({
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatDividerModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatDividerModule, MatButtonToggleModule, MatIconModule, MatToolbarModule],
   declarations: [...EXPORT_COMPONENTS],
   exports: [...EXPORT_COMPONENTS],
   providers: [],
